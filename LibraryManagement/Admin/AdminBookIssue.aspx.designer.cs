@@ -11,17 +11,26 @@ namespace LibraryManagement.Admin
 {
 
 
-    public partial class Admin_Publisher_Mgnt
+    public partial class AdminBookIssue
     {
 
         /// <summary>
-        /// txtID control.
+        /// txtMemberID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtID;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberID;
+
+        /// <summary>
+        /// txtBookID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBookID;
 
         /// <summary>
         /// btnGo control.
@@ -33,13 +42,40 @@ namespace LibraryManagement.Admin
         protected global::System.Web.UI.WebControls.Button btnGo;
 
         /// <summary>
-        /// txtPublisherName control.
+        /// txtMemberName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPublisherName;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberName;
+
+        /// <summary>
+        /// txtBookName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBookName;
+
+        /// <summary>
+        /// txtFromDT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFromDT;
+
+        /// <summary>
+        /// txtToDT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToDT;
 
         /// <summary>
         /// btnAdd control.
@@ -49,15 +85,6 @@ namespace LibraryManagement.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAdd;
-
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
         /// btnDelete control.

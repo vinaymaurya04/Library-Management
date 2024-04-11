@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="col-md-12 text-center">
-                            <img src="img/imgs/generaluser.png" width="150px" />
+                            <img src="../img/imgs/generaluser.png" width="150px" />
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
@@ -117,8 +117,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>User ID</label>
-                                    <asp:TextBox ID="txtUserID" runat="server" CssClass="form-control" ToolTip="Member ID" placeholder="Member ID"></asp:TextBox>
+                                    <label>User Name</label>
+                                    <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" ToolTip="UserName" placeholder="UserName"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -132,7 +132,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <center>
-                                        <asp:Button ID="btnSignup" runat="server" Text="SignUp" class="btn btn-success btn-block btn-lg" />
+                                        <asp:Button ID="btnSignup" runat="server" Text="SignUp" OnClick="OnClick_btnSignup" class="btn btn-success btn-block btn-lg" />
+                                        <asp:HiddenField ID="hdnUserID" runat="server" Value="0" />
                                     </center>
                                 </div>
                             </div>

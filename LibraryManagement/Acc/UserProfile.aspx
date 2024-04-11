@@ -172,15 +172,22 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h4>Your Profile</h4>
-                                <span>Account Status</span>
-                                <asp:Label ID="Label1" runat="server" CssClass="badge badge-pill badge-info" Text="Your Status"></asp:Label>
+                                <h4>Your Issued Book</h4>
+                                <span></span>
+                                <asp:Label ID="Label1" runat="server" CssClass="badge badge-pill badge-info" Text="Info about book due date"></asp:Label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <hr />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <asp:GridView ID="GrdList" runat="server" class="table table-bordered table-striped">
+
+                                </asp:GridView>
                             </div>
                         </div>
 

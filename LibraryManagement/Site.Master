@@ -55,7 +55,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <asp:LinkButton class="nav-link" ID="lnkHome" runat="server" OnClick="OnClick_lnkHome">Home</asp:LinkButton>
                         </li>
 
                         <li class="nav-item">
@@ -70,13 +70,16 @@
                             <asp:LinkButton class="nav-link" ID="lnkbtn" runat="server">View Books</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="userlogin" runat="server">User Login </asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="userlogin" runat="server" OnClick="OnClick_userlogin">User Login </asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="signup" runat="server">Sign Up </asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="signup" runat="server"  OnClick="OnClick_signup">Sign Up </asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="logOut" runat="server">Log Out</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="logOut" runat="server"  OnClick="OnClick_logOut">Log Out</asp:LinkButton>
+                        </li>
+                         <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lnkHellouser" Visible="false" runat="server"></asp:LinkButton>
                         </li>
 
                     </ul>
@@ -93,17 +96,17 @@
             <div id="footer1" class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 tex-center">
-                        <p>
-                            <asp:LinkButton ID="AdminLoginbtn" class="footerlinks" runat="server">Admin Login</asp:LinkButton>
+                        <p class="text-center">
+                            <asp:LinkButton ID="AdminLoginbtn" class="footerlinks" runat="server" OnClick="AdminLoginbtn_Click">Admin Login</asp:LinkButton>
 
                             &nbsp;
-                            <asp:LinkButton ID="AuthorManag" class="footerlinks" runat="server">Author Management</asp:LinkButton>
+                            <asp:LinkButton ID="AuthorManag" class="footerlinks" runat="server" Visible="false" OnClick="OnClick_AuthorManag">Author Management</asp:LinkButton>
                             &nbsp;
-                            <asp:LinkButton ID="publisher" class="footerlinks" runat="server">Publisher Management</asp:LinkButton>
+                            <asp:LinkButton ID="publisher" class="footerlinks" runat="server" Visible="false" OnClick="OnClick_publisher">Publisher Management</asp:LinkButton>
                             &nbsp;
-                            <asp:LinkButton ID="BookInv" class="footerlinks" runat="server">Book Inventory</asp:LinkButton>
+                            <asp:LinkButton ID="BookInv" class="footerlinks" runat="server" Visible="false" OnClick="OnClick_BookInv">Book Inventory</asp:LinkButton>
                             &nbsp;
-                            <asp:LinkButton ID="BookIssue" class="footerlinks" runat="server">Book Issuing</asp:LinkButton>
+                            <asp:LinkButton ID="BookIssue" class="footerlinks" runat="server" Visible="false" OnClick="OnClick_BookIssue">Book Issuing</asp:LinkButton>
                             &nbsp;
                            
                         </p>
