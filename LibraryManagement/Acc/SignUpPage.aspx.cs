@@ -119,6 +119,7 @@ namespace LibraryManagement
                 //{
                 SqlConnection connection = new SqlConnection(strcon);
                 if (connection.State == ConnectionState.Closed)
+
                 {
                     connection.Open();
 
