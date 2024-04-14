@@ -16,7 +16,8 @@ namespace LibraryManagement
         string OP, OPID, OPID1;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+                Initialization();
         }
         protected void Initialization()
         {
@@ -49,7 +50,7 @@ namespace LibraryManagement
             }
 
         }
-        protected void btnSignUp_Click(object sender,EventArgs e)
+        protected void btnSignUp_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Acc/SignUpPage.aspx");
         }

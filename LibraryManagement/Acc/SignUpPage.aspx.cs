@@ -33,7 +33,7 @@ namespace LibraryManagement
             txtPass.Text = "";
         }
 
-        // check duplicate
+        #region checkDuplicate
         bool checkMemberExist()
         {
             SqlConnection connection = new SqlConnection(strcon);
@@ -55,6 +55,7 @@ namespace LibraryManagement
 
             }
         }
+        #endregion
 
 
         int UserID; DateTime Created_Date;
@@ -85,7 +86,7 @@ namespace LibraryManagement
             {
                 Response.Write("<script>alert('Please Select State');</script>");
             }
-            if (txtPass.Text=="")
+            if (txtPass.Text == "")
             {
                 Response.Write("<script>alert('Please Enter Password');</script>");
             }

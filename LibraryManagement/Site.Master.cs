@@ -110,7 +110,7 @@ namespace LibraryManagement
             publisher.Visible = false;
             BookInv.Visible = false;
             BookIssue.Visible = false;
-            Response.Redirect("/Acc/Login.aspx");
+            Response.Redirect("/Acc/HomePage.aspx");
 
 
         }

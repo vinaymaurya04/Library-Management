@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Author ID</label>
                                     <div class="input-group">
@@ -36,10 +36,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Author Name</label>
                                     <asp:TextBox ID="txtAuthorName" runat="server" CssClass="form-control" ToolTip="Author Name" placeholder="Author Name"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <asp:DropDownList ID="ddlRecStatus" runat="server" CssClass="form-control">
+                                        <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
+                                        <asp:ListItem Text="InActive" Value="InActive"></asp:ListItem>
+                                    </asp:DropDownList>
                                 </div>
                             </div>
                         </div>
@@ -49,9 +58,10 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <center>
-                                        <asp:Button ID="btnAdd" runat="server" Text="Add" class="btn btn-success btn-lg" />
-                                         <asp:Button ID="btnUpdate" runat="server" Text="Update" class="btn btn-primary btn-lg" />
-                                         <asp:Button ID="btnDelete" runat="server" Text="Delete" class="btn btn-danger btn-lg" />
+                                        <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="OnClick_btnSave" class="btn btn-success btn-lg" />
+                                        <asp:Button ID="btnUpdate" runat="server" Text="Update" class="btn btn-primary btn-lg" />
+                                        <asp:Button ID="btnDelete" runat="server" Text="Delete" class="btn btn-danger btn-lg" />
+                                        <asp:HiddenField ID="hdnAuthorID" runat="server" Value="0" />
                                     </center>
                                 </div>
                             </div>
@@ -68,7 +78,7 @@
                                 <h4>Author List</h4>
                             </div>
                         </div>
-                      
+
 
 
                         <div class="row">

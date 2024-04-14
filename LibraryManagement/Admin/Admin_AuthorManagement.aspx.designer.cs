@@ -42,13 +42,22 @@ namespace LibraryManagement.Admin
         protected global::System.Web.UI.WebControls.TextBox txtAuthorName;
 
         /// <summary>
-        /// btnAdd control.
+        /// ddlRecStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRecStatus;
+
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
         /// btnUpdate control.
@@ -67,5 +76,14 @@ namespace LibraryManagement.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDelete;
+
+        /// <summary>
+        /// hdnAuthorID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnAuthorID;
     }
 }

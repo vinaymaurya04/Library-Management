@@ -78,7 +78,6 @@
     <Content Include="Bootstrap\JS\cdn.jsdelivr.net_npm_bootstrap%404.3.1_dist_js_bootstrap.min.js" />
     <Content Include="Bootstrap\JS\cdn.jsdelivr.net_npm_popper.js%401.14.7_dist_umd_popper.min.js" />
     <Content Include="Bootstrap\JS\code.jquery.com_jquery-3.3.1.slim.min.js" />
-    <Content Include="Category.aspx" />
     <Content Include="css\style.css" />
     <Content Include="DataTable\Css\cdn.datatables.net_1.13.6_css_jquery.dataTables.min.css" />
     <Content Include="DataTable\JS\cdn.datatables.net_1.13.6_js_jquery.dataTables.min.js" />
@@ -2220,13 +2219,6 @@
     </Compile>
     <Compile Include="Admin\Bookinventory.aspx.designer.cs">
       <DependentUpon>Bookinventory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Category.aspx.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Category.aspx.designer.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\DataSetCreator.cs" />
     <Compile Include="Acc\HomePage.aspx.cs">
