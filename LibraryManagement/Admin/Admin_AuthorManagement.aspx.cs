@@ -119,6 +119,38 @@ namespace LibraryManagement.Admin
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "script", $"alert('Error: {ex.Message}');", true);
             }
         }
+        protected void Onclick_btnReset(object sender,EventArgs e)
+        {
+            Initialization();
+        }
+        protected void OnClick_lnkUpdate(object sender,EventArgs e)
+        {
+            LinkButton lnkUpdate = (LinkButton)sender;
+            RepeaterItem row = (RepeaterItem)lnkUpdate.NamingContainer;
+            HiddenField GrdhdnAuthorID = (HiddenField)row.FindControl("GrdhdnAuthorID");
+            SetValue(Convert.ToInt32(GrdhdnAuthorID.Value));
+        }
+        public void SetValue(int PK)
+        {
+            OP = "GetEdit";
+            OPID = PK.ToString();
+            OPID1 = "";
+            SetValueToEdit();
+            txtAuthorName.Text = AuthorName;
+            txtID.Text = AuthoUniqeNo;
+            ddlRecStatus.SelectedValue = Rec_Status;
+        }
+        public void SetValueToEdit()
+        {
+            DataTable dt = Get_Data();
+            if (dt.Rows.Count > 0)
+            {
+                AuthorID = Convert.ToInt32(dt.Rows[0]["AuthorID"].ToString());
+                AuthorName = dt.Rows[0]["AuthorName"].ToString();
+                AuthoUniqeNo = dt.Rows[0]["AuthoUniqeNo"].ToString();
+                Rec_Status = dt.Rows[0]["Rec_Status"].ToString();
+            }
+        }
         public DataTable Get_Data()
         {
             SqlConnection connection = new SqlConnection(strcon);

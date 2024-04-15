@@ -59,8 +59,7 @@
                                 <div class="form-group">
                                     <center>
                                         <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="OnClick_btnSave" class="btn btn-success btn-lg" />
-                                        <asp:Button ID="btnUpdate" runat="server" Text="Update" class="btn btn-primary btn-lg" />
-                                        <asp:Button ID="btnDelete" runat="server" Text="Delete" class="btn btn-danger btn-lg" />
+                                        <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="Onclick_btnReset" class="btn btn-primary btn-lg" />
                                         <asp:HiddenField ID="hdnAuthorID" runat="server" Value="0" />
                                     </center>
                                 </div>
@@ -83,6 +82,7 @@
                                         <table id="tblList" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
+                                                    <th>Action</th>
                                                     <th>Sr No</th>
                                                     <th>Author No</th>
                                                     <th>Author Name</th>
@@ -94,6 +94,10 @@
                                     </HeaderTemplate>
                                     <ItemTemplate>
                                         <tr>
+                                            <td>
+                                                <asp:LinkButton ID="lnkUpdate" runat="server" OnClick="OnClick_lnkUpdate" CssClass="btn btn-primary btn-sm"><i class="fas fa-edit"></i></asp:LinkButton>
+                                                <asp:HiddenField ID="GrdhdnAuthorID" runat="server" Value='<%#Eval("AuthorID") %>' />
+                                            </td>
                                             <td>
                                                 <asp:Label ID="lblSrNo" runat="server" Text='<%# Container.ItemIndex+1 %>'></asp:Label></td>
                                             <td><%#Eval("AuthoUniqeNo") %></td>
