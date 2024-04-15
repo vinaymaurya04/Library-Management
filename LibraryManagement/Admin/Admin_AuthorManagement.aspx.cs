@@ -17,7 +17,10 @@ namespace LibraryManagement.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
                 Initialization();
+                RefreshGrid();
+            }
         }
         protected void Initialization()
         {
@@ -26,6 +29,17 @@ namespace LibraryManagement.Admin
             txtID.Text = "";
             ddlRecStatus.SelectedIndex = 0;
         }
+        #region RefreshGrid
+        protected void RefreshGrid()
+        {
+            OP = "GetList";
+            OPID = "";
+            OPID1 = "";
+            DataTable dt = Get_Data();
+            rptList.DataSource = dt;
+            rptList.DataBind();
+        }
+        #endregion
         #region checkDuplicate
         bool checkMemberExist()
         {
@@ -51,7 +65,7 @@ namespace LibraryManagement.Admin
         #endregion
         int AuthorID; DateTime Created_Date;
         string AuthoUniqeNo, AuthorName, Rec_Status, Created_UserName;
-        protected void OnClick_btnSave(object sender,EventArgs e)
+        protected void OnClick_btnSave(object sender, EventArgs e)
         {
             if (checkMemberExist())
             {
@@ -104,6 +118,25 @@ namespace LibraryManagement.Admin
                 // Log the exception or display an error message to the user
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "script", $"alert('Error: {ex.Message}');", true);
             }
+        }
+        public DataTable Get_Data()
+        {
+            SqlConnection connection = new SqlConnection(strcon);
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "SP_UT_Mst_Author_Get";
+            cmd.Parameters.AddWithValue("@OP", OP);
+            cmd.Parameters.AddWithValue("@OPID", OPID);
+            cmd.Parameters.AddWithValue("@OPID1", OPID1);
+            SqlDataReader rd = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(rd);
+            return dt;
         }
     }
 }

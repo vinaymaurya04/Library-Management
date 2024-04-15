@@ -72,18 +72,41 @@
             </div>
             <div class="col-md-7">
                 <div class="card">
+                    <div class="card-header">
+                        <h4>Author List</h4>
+                    </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h4>Author List</h4>
-                            </div>
-                        </div>
-
-
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <hr />
+                            <div class="col-md-12 table-responsive">
+                                <asp:Repeater ID="rptList" runat="server">
+                                    <HeaderTemplate>
+                                        <table id="tblList" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr No</th>
+                                                    <th>Author No</th>
+                                                    <th>Author Name</th>
+                                                    <th>Created Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lblSrNo" runat="server" Text='<%# Container.ItemIndex+1 %>'></asp:Label></td>
+                                            <td><%#Eval("AuthoUniqeNo") %></td>
+                                            <td><%#Eval("AuthorName") %></td>
+                                            <td><%#Eval("CreatedDT") %></td>
+                                            <td><%#Eval("Rec_Status") %></td>
+                                        </tr>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </tbody>
+                                        </table>
+                                    </FooterTemplate>
+                                </asp:Repeater>
                             </div>
                         </div>
 
