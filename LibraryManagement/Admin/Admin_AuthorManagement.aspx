@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Admin_AuthorManagement.aspx.cs" Inherits="LibraryManagement.Admin.Admin_AuthorManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Your DataTables initialization code here
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -79,7 +86,7 @@
                             <div class="col-md-12 table-responsive">
                                 <asp:Repeater ID="rptList" runat="server">
                                     <HeaderTemplate>
-                                        <table id="tblList" class="table table-bordered table-hover">
+                                        <table id="tblList" class="table table-bordered table-hover" clientidmode="Static">
                                             <thead>
                                                 <tr>
                                                     <th>Action</th>
