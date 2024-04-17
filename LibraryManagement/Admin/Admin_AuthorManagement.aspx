@@ -39,7 +39,7 @@
                                     <label>Author ID</label>
                                     <div class="input-group">
                                         <asp:TextBox ID="txtID" runat="server" CssClass="form-control" ToolTip="ID" placeholder="ID"></asp:TextBox>
-                                        <asp:Button ID="btnGo" runat="server" CssClass="btn btn-primary" Text="Go" />
+                                        <%--<asp:Button ID="btnGo" runat="server" CssClass="btn btn-primary" Text="Go" />--%>
                                     </div>
                                 </div>
                             </div>
