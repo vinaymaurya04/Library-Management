@@ -15,31 +15,22 @@ namespace LibraryManagement.Admin
     {
 
         /// <summary>
-        /// Filupload control.
+        /// Fileupload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Filupload;
+        protected global::System.Web.UI.WebControls.FileUpload Fileupload1;
 
         /// <summary>
-        /// txtBookID control.
+        /// txtBookNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookID;
-
-        /// <summary>
-        /// lnkGo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkGo;
+        protected global::System.Web.UI.WebControls.TextBox txtBookNo;
 
         /// <summary>
         /// txtBookName control.
@@ -51,31 +42,31 @@ namespace LibraryManagement.Admin
         protected global::System.Web.UI.WebControls.TextBox txtBookName;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguage;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlPublisherName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPublisherName;
 
         /// <summary>
-        /// DropDownList3 control.
+        /// ddlAuthorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAuthorName;
 
         /// <summary>
         /// TextBox3 control.
@@ -150,30 +141,39 @@ namespace LibraryManagement.Admin
         protected global::System.Web.UI.WebControls.TextBox txtIssuedBook;
 
         /// <summary>
-        /// btnAdd control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// btnUpdate control.
+        /// btnReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnReset;
 
         /// <summary>
-        /// btnDelete control.
+        /// hdnBookID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.HiddenField hdnBookID;
+
+        /// <summary>
+        /// rptList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptList;
     }
 }

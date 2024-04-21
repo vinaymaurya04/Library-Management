@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Bookinventory.aspx.cs" Inherits="LibraryManagement.Admin.Bookinventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imgview').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
@@ -15,7 +26,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <img src="../img/imgs/books.png" width="80px" />
+                                <img id="imgview" src="../img/imgs/books.png" width="80px" />
                             </div>
                         </div>
 
@@ -26,7 +37,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <asp:FileUpload ID="Filupload" CssClass="form-control" runat="server" />
+                                <asp:FileUpload ID="Fileupload1" CssClass="form-control" runat="server" onchange="readURL(this);" />
                             </div>
                         </div>
                         <div class="row">
@@ -34,8 +45,8 @@
                                 <div class="form-group">
                                     <label>Book ID</label>
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtBookID" runat="server" CssClass="form-control" ToolTip="ID" placeholder="ID"></asp:TextBox>
-                                        <asp:LinkButton ID="lnkGo" runat="server" ToolTip="Go" CssClass="btn btn-primary"><i class="fa-solid fa-circle-check"></i> </asp:LinkButton>
+                                        <asp:TextBox ID="txtBookNo" runat="server" CssClass="form-control" ToolTip="ID" placeholder="ID"></asp:TextBox>
+                                        <%--<asp:LinkButton ID="lnkGo" runat="server" ToolTip="Go" CssClass="btn btn-primary"><i class="fa-solid fa-circle-check"></i> </asp:LinkButton>--%>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +62,7 @@
                             <div class="col-md-4">
                                 <label>Language</label>
                                 <div class="form-group">
-                                    <asp:DropDownList class="form-control" ID="DropDownList1" runat="server">
+                                    <asp:DropDownList class="form-control" ID="ddlLanguage" runat="server">
                                         <asp:ListItem Text="English" Value="English" />
                                         <asp:ListItem Text="Hindi" Value="Hindi" />
                                         <asp:ListItem Text="Marathi" Value="Marathi" />
@@ -62,18 +73,18 @@
                                 </div>
                                 <label>Publisher Name</label>
                                 <div class="form-group">
-                                    <asp:DropDownList class="form-control" ID="DropDownList2" runat="server">
-                                        <asp:ListItem Text="Publisher 1" Value="Publisher 1" />
-                                        <asp:ListItem Text="Publisher 2" Value="Publisher 2" />
+                                    <asp:DropDownList class="form-control" ID="ddlPublisherName" runat="server">
+                                       <%-- <asp:ListItem Text="Publisher 1" Value="Publisher 1" />
+                                        <asp:ListItem Text="Publisher 2" Value="Publisher 2" />--%>
                                     </asp:DropDownList>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label>Author Name</label>
                                 <div class="form-group">
-                                    <asp:DropDownList class="form-control" ID="DropDownList3" runat="server">
-                                        <asp:ListItem Text="A1" Value="a1" />
-                                        <asp:ListItem Text="a2" Value="a2" />
+                                    <asp:DropDownList class="form-control" ID="ddlAuthorName" runat="server">
+                                      <%--  <asp:ListItem Text="A1" Value="a1" />
+                                        <asp:ListItem Text="a2" Value="a2" />--%>
                                     </asp:DropDownList>
                                 </div>
                                 <label>Publish Date</label>
@@ -158,36 +169,17 @@
                                     <asp:TextBox ID="txtIssuedBook" runat="server" CssClass="form-control" ReadOnly="true" ToolTip="Issued Book" placeholder="Issued Book"></asp:TextBox>
                                 </div>
                             </div>
-
-
                         </div>
-
-
-
-
-
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <center>
-                                        <asp:Button ID="btnAdd" runat="server" Text="Add" class="btn btn-primary btn-lg btn-block" />
+                                        <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="OnClick_btnSave" class="btn btn-success btn-lg" />
+                                        <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="Onclick_btnReset" class="btn btn-primary btn-lg" />
+                                        <asp:HiddenField ID="hdnBookID" runat="server" Value="0" />
                                     </center>
                                 </div>
                             </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                    <center>
-                                        <asp:Button ID="btnUpdate" runat="server" Text="Update" class="btn btn-success btn-lg btn-block" />
-                                    </center>
-                                </div>
-                            </div>  
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <center>
-                                        <asp:Button ID="btnDelete" runat="server" Text="Delete" class="btn btn-danger btn-lg btn-block" />
-                                    </center>
-                                </div>
-                            </div>  
                         </div>
                     </div>
                 </div>
@@ -195,18 +187,46 @@
             </div>
             <div class="col-md-7">
                 <div class="card">
+                    <div class="card-header">
+                        <h4>Book List</h4>
+                    </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h4>Member List</h4>
-                            </div>
-                        </div>
-
-
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <hr />
+                            <div class="col-md-12 table-responsive">
+                                <asp:Repeater ID="rptList" runat="server">
+                                    <HeaderTemplate>
+                                        <table id="tblList" class="table table-bordered table-hover" clientidmode="Static">
+                                            <thead>
+                                                <tr>
+                                                    <th>Action</th>
+                                                    <th>Sr No</th>
+                                                    <th>Book No</th>
+                                                    <th>Book Name</th>
+                                                    <th>Created Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td>
+                                                <asp:LinkButton ID="lnkUpdate" runat="server" OnClick="OnClick_lnkUpdate" CssClass="btn btn-primary btn-sm"><i class="fas fa-edit"></i></asp:LinkButton>
+                                                <asp:HiddenField ID="GrdhdnBookID" runat="server" Value='<%#Eval("BookID") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblSrNo" runat="server" Text='<%# Container.ItemIndex+1 %>'></asp:Label></td>
+                                            <td><%#Eval("BookNo") %></td>
+                                            <td><%#Eval("BookName") %></td>
+                                            <td><%#Eval("CreatedDT") %></td>
+                                            <td><%#Eval("Rec_Status") %></td>
+                                        </tr>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </tbody>
+                                        </table>
+                                    </FooterTemplate>
+                                </asp:Repeater>
                             </div>
                         </div>
 
